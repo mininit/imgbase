@@ -39,6 +39,6 @@ You can also import and use the conversion logic in your Go projects:
 ```go
 import "github.com/mininit/imgbase/pkg/utils"
 
-dataURI := imgbase.EncodeImageToBase64DataURL("path/to/image.png")
+dataURI := utils.EncodeImageToBase64DataURL("path/to/image.png")
 fmt.Println(dataURI)
 ```
