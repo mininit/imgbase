@@ -1,4 +1,4 @@
-package main
+package utils
 
 import (
 	"encoding/base64"
@@ -8,17 +8,11 @@ import (
 	"strings"
 )
 
-func main() {
-	if len(os.Args) < 2 {
-		fmt.Fprintln(os.Stderr, "Usage: imgbase <file>")
-		os.Exit(1)
-	}
-
-	filePath := os.Args[1]
+// EncodeImageToBase64DataURL reads the given file and returns a data URL
+func EncodeImageToBase64DataURL(filePath string) (string, error) {
 	data, err := os.ReadFile(filePath)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error reading file: %v\n", err)
-		os.Exit(1)
+		return "", fmt.Errorf("error reading file: %w", err)
 	}
 
 	sniffLen := 512
@@ -28,13 +22,11 @@ func main() {
 
 	contentType := http.DetectContentType(data[:sniffLen])
 
+	// Special case for SVG
 	if strings.Contains(string(data[:sniffLen]), "<svg") {
 		contentType = "image/svg+xml"
 	}
 
-	// Encode to Base64
 	encoded := base64.StdEncoding.EncodeToString(data)
-
-	fmt.Printf("data:%s;base64,%s\n", contentType, encoded)
-
+	return fmt.Sprintf("data:%s;base64,%s", contentType, encoded), nil
 }
