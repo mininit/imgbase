@@ -40,20 +40,20 @@ You can also import and use the conversion logic in your Go projects:
 package main
 
 import (
-	"fmt"
-	"log"
+  "fmt"
+  "log"
 
-	"github.com/mininit/imgbase/pkg/utils"
+  "github.com/mininit/imgbase/pkg/utils"
 )
 
 func main() {
 
-	dataURI, err := utils.EncodeImageToBase64DataURL("path/to/image.png")
-	if err != nil {
-		log.Fatal(err)
-	}
+  dataURI, err := utils.EncodeImageToBase64DataURL("path/to/image.png")
+  if err != nil {
+    log.Fatal(err)
+  }
 
-	fmt.Println(dataURI)
+  fmt.Println(dataURI)
 }
 
 ```
