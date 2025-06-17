@@ -37,8 +37,23 @@ To save the output to a file:
 You can also import and use the conversion logic in your Go projects:
 
 ```go
-import "github.com/mininit/imgbase/pkg/utils"
+package main
 
-dataURI := utils.EncodeImageToBase64DataURL("path/to/image.png")
-fmt.Println(dataURI)
+import (
+	"fmt"
+	"log"
+
+	"github.com/mininit/imgbase/pkg/utils"
+)
+
+func main() {
+
+	dataURI, err := utils.EncodeImageToBase64DataURL("path/to/image.png")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(dataURI)
+}
+
 ```
