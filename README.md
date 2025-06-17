@@ -21,10 +21,10 @@ Or build from source using Go:
 ```bash
 git clone https://github.com/mininit/imgbase.git
 cd imgbase
-go build -o imgbase
+make build
 ```
 
-## Usage
+## Usage (CLI)
 `imgbase path/to/image.png`
 
 Example Output:
@@ -32,3 +32,13 @@ Example Output:
 
 To save the output to a file:
 `imgbase logo.png > logo.txt`
+
+## Usage (Go Library)
+You can also import and use the conversion logic in your Go projects:
+
+```go
+import "github.com/mininit/imgbase/pkg/utils"
+
+dataURI := imgbase.EncodeImageToBase64DataURL("path/to/image.png")
+fmt.Println(dataURI)
+```
