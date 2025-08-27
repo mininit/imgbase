@@ -7,9 +7,6 @@ on:
 
 permissions:
   contents: write
-  # packages: write
-  # issues: write
-  # id-token: write
 
 jobs:
   goreleaser:
@@ -23,6 +20,7 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: stable
+          cache: false
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:
