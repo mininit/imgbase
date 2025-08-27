@@ -1,0 +1,24 @@
+project_name: imgbase
+
+builds:
+  - env:
+      - CGO_ENABLED=0
+    main: .
+    binary: imgbase
+    ldflags:
+      - "-s -w -X main.Version={{.Version}}"
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+
+nfpms:
+  - maintainer: "mininit <mininit@mininit.com>"
+    description: "CLI tool to encode images as base64 data URIs"
+    license: MIT
+    formats:
+      - deb
+      - rpm
