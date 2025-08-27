@@ -7,8 +7,8 @@ import (
 	"strings"
 )
 
-// EncodeImageBytesToBase64DataURL encodes raw image bytes to a data URL
-func EncodeImageBytesToBase64DataURL(data []byte) (string, error) {
+// EncodeImageBytesToBase64DataURI encodes raw image bytes to a data URI
+func EncodeImageBytesToBase64DataURI(data []byte) (string, error) {
 	sniffLen := 512
 	if len(data) < sniffLen {
 		sniffLen = len(data)

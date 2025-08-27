@@ -68,10 +68,10 @@ func main() {
 }
 
 func out(data []byte) {
-	dataURL, err := utils.EncodeImageBytesToBase64DataURL(data)
+	dataURI, err := utils.EncodeImageBytesToBase64DataURI(data)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
-	fmt.Println(dataURL)
+	fmt.Println(dataURI)
 }
