@@ -4,17 +4,11 @@ import (
 	"encoding/base64"
 	"fmt"
 	"net/http"
-	"os"
 	"strings"
 )
 
-// EncodeImageToBase64DataURL reads the given file and returns a data URL
-func EncodeImageToBase64DataURL(filePath string) (string, error) {
-	data, err := os.ReadFile(filePath)
-	if err != nil {
-		return "", fmt.Errorf("error reading file: %w", err)
-	}
-
+// EncodeImageBytesToBase64DataURL encodes raw image bytes to a data URL
+func EncodeImageBytesToBase64DataURL(data []byte) (string, error) {
 	sniffLen := 512
 	if len(data) < sniffLen {
 		sniffLen = len(data)
