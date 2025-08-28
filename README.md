@@ -18,14 +18,6 @@ It’s useful for embedding small images directly in HTML, CSS, or JSON without 
 brew install mininit/tap/imgbase
 ```
 
-### Build from Source
-
-```bash
-git clone https://github.com/mininit/imgbase.git
-cd imgbase
-make build
-```
-
 ## Usage
 
 `imgbase [file ...]`
